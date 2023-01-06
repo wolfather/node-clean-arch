@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.dev.json",
+    "compile-schemas": "json2ts -i schemas -o types",
+    "dev": "ts-node --files src/server.ts"
+  },
+  "dependencies": {
+    "fastify": "^4.11.0"
+  },
+  "devDependencies": {
+    "@fastify/type-provider-typebox": "^2.4.0",
+    "@sinclair/typebox": "^0.25.16",
+    "@types/node": "^18.11.18",
+    "json-schema-to-typescript": "^11.0.2",
+    "ts-node": "^10.9.1",
+    "vitest": "^0.26.3"
+  }
+}
