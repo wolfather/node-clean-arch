@@ -1,18 +1,24 @@
 {
   "scripts": {
     "start": "node dist/server.js",
+    "test": "vitest",
     "build": "tsc -p tsconfig.dev.json",
     "compile-schemas": "json2ts -i schemas -o types",
-    "dev": "ts-node --files src/server.ts"
+    "dev": "nodemon"
   },
   "dependencies": {
     "fastify": "^4.11.0"
   },
   "devDependencies": {
+    "@fastify/type-provider-json-schema-to-ts": "^2.2.1",
     "@fastify/type-provider-typebox": "^2.4.0",
     "@sinclair/typebox": "^0.25.16",
     "@types/node": "^18.11.18",
+    "@vitest/coverage-istanbul": "^0.26.3",
+    "@vitest/ui": "^0.26.3",
+    "fastify-plugin": "^4.4.0",
     "json-schema-to-typescript": "^11.0.2",
+    "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "vitest": "^0.26.3"
   }

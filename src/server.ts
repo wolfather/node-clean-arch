@@ -1,11 +1,9 @@
-import fastify from 'fastify';
+import { ServerApp } from "./app";
 
-const server = fastify();
 
-server.get('/', async(req, reply) => {
-    reply.send({app: 'Clean'})
-})
-.listen({port: 3000}, (err, address) => {
+const app = new ServerApp();
+
+app.server.listen({port: 3000}, (err, address) => {
     if(err) {
         console.log({err})
         process.exit();
