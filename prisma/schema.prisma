@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "src/generated/client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  v              Int?     @map("__v")
+  email          String
+  name           String
+  documentNumber String   @unique()
+  phoneNumber    String?
+  createdAt      DateTime @default(now())
+  udpatedAt      DateTime?
+  password       String?
+  floor          String?
+  number         String?
+  token          String?
+  parkPlace      String?
+  syndic         syndic[]
+  profile        USER_PROFILE?
+}
+
+enum USER_PROFILE {
+  OWNER
+  CONDOMINUM
+  SYNDIC
+  EMPLOYEE
+  OTHER
+}
+
+model syndic {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  v                 Int?   @map("__v")
+  user              users  @relation(fields: [syndicId], references: [id])
+  syndicId          String @db.ObjectId
+  publicPhoneNumber String
+  publicEmail       String
+}
+
+model building {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  v               Int?   @map("__v")
+  documentNumber  String @unique()
+  address         String
+  postalCode      String
+  owner           String
+  eventsList      eventsType[]
+}
+
+model employee {
+  id                    String @id @default(auto()) @map("_id") @db.ObjectId
+  v                     Int? @map("__v")
+  name                  String
+  documentNumber        String @unique()
+  role                  JOB_ROLE  @default(USER)
+  accessLevel           Int
+  pictureId             String?
+  company               String
+  companyDocumentNumber String
+}
+
+enum JOB_ROLE {
+  USER
+  ADMIN
+  SYNDIC
+  EMPLOYEE
+}
+
+model scheduleEvent {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  v               Int?    @map("__v")
+  available       Boolean
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime?
+  dateFrom        DateTime @unique()
+  dateTo          DateTime @default(now())
+  location        String
+  timeFrom        String
+  timeTo          String
+  userId          String @db.ObjectId
+  guestsList      String[]
+  eventTitle      String @unique()
+  alias           eventsType @relation(fields: [eventTitle], references: [eventAlias])
+}
+
+model eventsType {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  eventAlias      String @unique()
+  buildingId      building @relation(fields: [buildingEventId], references: [id])
+  buildingEventId String @db.ObjectId
+  alias           scheduleEvent[]
+}

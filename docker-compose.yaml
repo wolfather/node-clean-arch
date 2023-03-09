@@ -1,0 +1,17 @@
+version: '3'
+networks:
+  default:
+    name: tsbuildings
+    external: true
+    
+      
+services:
+  typescript-express-app:
+    networks:
+      - tsbuildings
+    build: .
+    ports: 
+      - 3000:3000
+    volumes:
+      - ./src:/usr/app/src
+commands: ['npm', 'run', 'start:prod']
