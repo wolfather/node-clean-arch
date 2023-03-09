@@ -89,65 +89,14 @@ Prisma.NullTypes = {
 // https://github.com/microsoft/TypeScript/issues/3192#issuecomment-261720275
 function makeEnum(x) { return x; }
 
-exports.Prisma.BuildingScalarFieldEnum = makeEnum({
-  id: 'id',
-  v: 'v',
-  documentNumber: 'documentNumber',
-  address: 'address',
-  postalCode: 'postalCode',
-  owner: 'owner'
-});
-
-exports.Prisma.EmployeeScalarFieldEnum = makeEnum({
-  id: 'id',
-  v: 'v',
-  name: 'name',
-  documentNumber: 'documentNumber',
-  role: 'role',
-  accessLevel: 'accessLevel',
-  pictureId: 'pictureId',
-  company: 'company',
-  companyDocumentNumber: 'companyDocumentNumber'
-});
-
-exports.Prisma.EventsTypeScalarFieldEnum = makeEnum({
-  id: 'id',
-  eventAlias: 'eventAlias',
-  buildingEventId: 'buildingEventId'
-});
-
 exports.Prisma.QueryMode = makeEnum({
   default: 'default',
   insensitive: 'insensitive'
 });
 
-exports.Prisma.ScheduleEventScalarFieldEnum = makeEnum({
-  id: 'id',
-  v: 'v',
-  available: 'available',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  dateFrom: 'dateFrom',
-  dateTo: 'dateTo',
-  location: 'location',
-  timeFrom: 'timeFrom',
-  timeTo: 'timeTo',
-  userId: 'userId',
-  guestsList: 'guestsList',
-  eventTitle: 'eventTitle'
-});
-
 exports.Prisma.SortOrder = makeEnum({
   asc: 'asc',
   desc: 'desc'
-});
-
-exports.Prisma.SyndicScalarFieldEnum = makeEnum({
-  id: 'id',
-  v: 'v',
-  syndicId: 'syndicId',
-  publicPhoneNumber: 'publicPhoneNumber',
-  publicEmail: 'publicEmail'
 });
 
 exports.Prisma.UsersScalarFieldEnum = makeEnum({
@@ -166,13 +115,6 @@ exports.Prisma.UsersScalarFieldEnum = makeEnum({
   parkPlace: 'parkPlace',
   profile: 'profile'
 });
-exports.JOB_ROLE = makeEnum({
-  USER: 'USER',
-  ADMIN: 'ADMIN',
-  SYNDIC: 'SYNDIC',
-  EMPLOYEE: 'EMPLOYEE'
-});
-
 exports.USER_PROFILE = makeEnum({
   OWNER: 'OWNER',
   CONDOMINUM: 'CONDOMINUM',
@@ -182,12 +124,7 @@ exports.USER_PROFILE = makeEnum({
 });
 
 exports.Prisma.ModelName = makeEnum({
-  users: 'users',
-  syndic: 'syndic',
-  building: 'building',
-  employee: 'employee',
-  scheduleEvent: 'scheduleEvent',
-  eventsType: 'eventsType'
+  users: 'users'
 });
 
 /**

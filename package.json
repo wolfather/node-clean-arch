@@ -1,5 +1,5 @@
 {
-  "name": "ts-buildings",
+  "name": "simplebackend",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
@@ -27,7 +27,7 @@
   "license": "ISC",
   "repository": {
     "type": "github",
-    "url": "https://github.com/wolfather/ts-buildings"
+    "url": "https://github.com/wolfather/node-clean-arch"
   },
   "dependencies": {
     "@prisma/client": "4.8.0",

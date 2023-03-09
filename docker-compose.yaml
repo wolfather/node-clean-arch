@@ -1,14 +1,14 @@
 version: '3'
 networks:
   default:
-    name: tsbuildings
+    name: simplebackend
     external: true
     
       
 services:
   typescript-express-app:
     networks:
-      - tsbuildings
+      - simplebackend
     build: .
     ports: 
       - 3000:3000

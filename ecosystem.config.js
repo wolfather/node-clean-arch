@@ -1,7 +1,7 @@
 module.exports = {
   apps : [
     {
-      name   : "building-user",
+      name   : "simplebackend",
       script : "dist/server.js",
       exec_mode: 'cluster',
       instances: 2,

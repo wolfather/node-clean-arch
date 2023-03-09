@@ -1,6 +1,6 @@
 FROM node:18.12.1-bullseye-slim as build
 
-WORKDIR /usr/ts-buildings
+WORKDIR /usr/simplebackend
 
 ENV NODE_VERSION 18.12.1
 
